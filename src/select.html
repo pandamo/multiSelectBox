@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>选择器</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./css/multiSelect.css">
+  <script src="./js/multiSelect.js"></script>
+  <style>
+    /* 演示用 显示输入框*/
+    .demo .multiSelect input {
+      background-color: #eee;
+      border: 1px solid #aaa;
+      padding: 10px;
+    }
+    
+  </style>
+
+</head>
+
+<body ontouchstart="" onmouseover="" class="demo">
+  <div style='display: flex;'>
+    <div style="margin:20px;flex:1">
+      <div class='multiSelect' tabindex="0" id="mSelect01"></div>
+      <div style='margin-top:30px'>
+        <button onclick="document.getElementById('showData1').value=JSON.stringify(data1.getAll(),2,' ')">获取全部数据</button>
+        <button onclick="document.getElementById('showData1').value=JSON.stringify(data1.getSelected(),2,' ')">获取已选数据</button>
+        <textarea style="width: 100%;height: 400px;" id="showData1"></textarea>
+      </div>
+
+    </div>
+    <div style="margin:20px;flex:1">
+      <div class='multiSelect' tabindex="0" id="mSelect02"></div>
+      <div style='margin-top:30px'>
+        <button onclick="document.getElementById('showData2').value=JSON.stringify(data2.getAll(),2,' ')">获取全部数据</button>
+        <button onclick="document.getElementById('showData2').value=JSON.stringify(data2.getSelected(),2,' ')">获取已选数据</button>
+        <textarea style="width: 100%;height: 400px;" id="showData2"></textarea>
+      </div>
+    </div>
+  </div>
+  
+ 
+ 
+ 
+  <div>
+  
+  </div>
+  <pre style='clear:both;background-color: #fafafa; border-radius: 5px;margin-top:20px;'> 
+    依赖：
+    css：multiSelect.css
+    js：multiSelect.js
+
+    html应用:
+    相应位置插入&ltdiv class='multiSelect' tabindex="0" id="元素ID"&gt&ltdiv&gt
+
+    js应用：    
+    初始化： var 名称 = new multiSelectModuel('元素ID',传入的数据名称)
+    获取完整数据：名称.getAll() 
+    获取已选数据：名称.getSelected() 
+    例：
+    var data1 = new multiSelectModuel('mSelect01',list1)
+    完整数据：data1.getAll() 
+    完整数据：data1.getSelected() 
+
+    传入的数据结构：   
+    [
+      {
+        label: '',//显示的名称
+        checked: false //是否选择
+        //其他字段（如id,value等）自行拓展
+      }
+    ]
+
+    例:
+    var list1=[
+      {
+        label: 'Java',
+        checked: false
+      },
+      {
+        label: 'javascript',
+        checked: false
+      }
+    ]
+  </pre>
+
+
+  <script>
+    //演示数据
+    var list1=[{
+          label: 'Java',
+          checked: false
+        },
+        {
+          label: 'javascript',
+          checked: false
+        },
+        {
+          label: '我有很长的名字我有很长的名字我有很长的名字我有很长的名字',
+          checked: false
+        },
+        {
+          label: '123',
+          checked: false
+        },
+        {
+          label: '456',
+          checked: false
+        }
+      ]
+    var list2= [{
+          label: 'iphone',
+          checked: true
+        },
+        {
+          label: '华为',
+          checked: false
+        },
+        {
+          label: '小米1',
+          checked: true
+        },
+        {
+          label: '小米2',
+          checked: false
+        },
+        {
+          label: '小米3',
+          checked: false
+        },
+        {
+          label: '小米4',
+          checked: false
+
+        },
+        {
+          label: '小米5',
+          checked: false
+
+        },
+        {
+          label: '小米6',
+          checked: false
+
+        },
+        {
+          label: '小米7',
+          checked: false
+        },
+        {
+          label: '小米8',
+          checked: false
+        }
+      ]
+
+
+    //初始化
+   var data1 = new multiSelectModuel('mSelect01',list1)
+   var data2 = new multiSelectModuel('mSelect02',list2)
+  </script>
+</body>
+</html>
